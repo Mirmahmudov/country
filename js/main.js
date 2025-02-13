@@ -48,26 +48,24 @@ const useData = (data) => {
 };
 
 inputt.addEventListener("input", () => {
-  contires.innerHTML = "";
+  const contires = document.querySelectorAll(".country")
   const searchCountry = inputt.value.trim().toLowerCase();
-  contires.childNodes.forEach((country) => {
+  contires.forEach((country) => {
     if (
       !country
         .querySelector("h3")
         .textContent.toLowerCase()
         .includes(searchCountry)
     ) {
-      country.classList.add("hidden");
+      country?.classList.add("hidden");
     } else {
-      country.classList.remove("hidden");
+      country?.classList?.remove("hidden");
     }
   });
 });
 
 region.addEventListener("change", () => {
   const regionEl = region.value.trim().toLowerCase();
-  console.log();
-
   if (regionEl == "all") {
     useData(datas);
   } else {
